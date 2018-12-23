@@ -38,7 +38,13 @@ var guessThis = {
     //only job is to update the guessedLetters
     updateGuessed: function(c) {
         this.guessedLetters = this.guessedLetters + c;
-        document.getElementById("guessedLetters").innerHTML = "Letters already guessed: " + this.guessedLetters;
+        var toShow = "";
+        for (var i = 0; i < this.guessedLetters.length; i++) {
+            toShow = toShow + this.guessedLetters[i] + " ";
+        }
+        toShow = toShow.toUpperCase();
+        console.log(toShow);
+        document.getElementById("guessedLetters").innerHTML = "Letters already guessed: " + toShow;
     },
 
     //only job is to update blankWord
