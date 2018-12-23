@@ -4,6 +4,7 @@
 //score
 //letters guessed
 //displayed word
+//something
 
 //helper function to get a random int
 function getRandomInt(min, max) {
