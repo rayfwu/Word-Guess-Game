@@ -33,6 +33,7 @@ var guessThis = {
     countDown: 10,
     guessedLetters: "",
     winScore: 0,
+    loseScore: 0,
 
     //only job is to update the guessedLetters
     updateGuessed: function(c) {
@@ -111,6 +112,7 @@ var game = {
         document.getElementById("guessedLetters").innerHTML = "Letters already guessed: " + guessThis.guessedLetters;
         document.getElementById("countDown").innerHTML = "Number of guesses remaining: " + guessThis.countDown;
         document.getElementById("winScore").innerHTML = "Wins: " + guessThis.winScore;
+        document.getElementById("loseScore").innerHTML = "Losses: " + guessThis.loseScore;
         console.log(guessThis.actualWord);
     },
     softReset: function() {
@@ -168,7 +170,9 @@ document.onkeyup = function(event) {
         }
     } else {
         alert("You have no guesses left!\nResetting game.");
-        game.hardReset();
+        guessThis.loseScore++;
+        document.getElementById("loseScore").innerHTML = "Losses: " + loseScore;
+        game.softReset();
         game.init();
     }
     
